@@ -32,7 +32,7 @@ export const Background = styled.div`
     background-color:white;
     display:flex;
     height:100%;
-    min-height:600px;
+    min-height:550px;
 
 `
 export const RightSection = styled.div`

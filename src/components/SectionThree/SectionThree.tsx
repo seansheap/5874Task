@@ -1,5 +1,5 @@
 
-import { createTheme, ImageList, Tab, Tabs, ThemeProvider } from '@mui/material';
+import { ImageList, Tab, Tabs, ThemeProvider } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
@@ -8,32 +8,25 @@ import { primaryColour } from '../common/contants';
 import { Headline, HeadlineGrey, TitleSectionText as SectionText } from '../common/styles';
 import MenuTitleStatic from '../MenuTitle/MenuTitleStatic';
 import ProjectList from '../ProjectList/ProjectList';
-import { Background, CarousalContainer, CarousalNav, CarousalNavContainer, FootContainer } from './SectionThreeCSS';
+import { Background, CarousalContainer, CarousalNav, CarousalNavContainer, FootContainer, TabTheme } from './SectionThreeCSS';
 
 
 const SectionThree = () => {
     const projects = useAppSelector((state) => state.companies.projects)
     const [imagePosition, setImagePosition] = useState(0)
     const [tabSelect, setTabSelect] = useState(0)
-    const visibleProject = projects.slice(imagePosition, imagePosition + 8)
+    const visibleProject = projects.slice(imagePosition, imagePosition + 6)
 
     const handleChange = (eventItem: any, val: number) => {
         setTabSelect(val)
     }
+    const handleSelctionIncrease = ()=>{
+        imagePosition + 6 < projects.length ? setImagePosition(imagePosition + 6) : setImagePosition(0)
+    }
+    const handleSelctionDecrease = ()=>{
+        imagePosition !== 0 ? setImagePosition(imagePosition - 6) : setImagePosition(projects.length - 6)
+    }
 
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: primaryColour
-            },
-            secondary: {
-                light: '#0066ff',
-                main: '#000000',
-                // dark: will be calculated from palette.secondary.main,
-                contrastText: '#ffcc00',
-            },
-        }
-    })
 
     return (
         <Background>
@@ -46,7 +39,7 @@ const SectionThree = () => {
                         recent projects
                     </HeadlineGrey>
                 </p>
-                <ThemeProvider theme={theme}>
+                <ThemeProvider theme={TabTheme}>
                     <Box sx={{ borderBottom: 1, borderColor: '#506473' }}>
                         <Tabs value={tabSelect} onChange={handleChange}
                             textColor='secondary'
@@ -64,8 +57,8 @@ const SectionThree = () => {
                 <Carousel
                     autoPlay={false}
                     animation='slide'
-                    next={() => imagePosition + 8 < projects.length ? setImagePosition(imagePosition + 8) : setImagePosition(0)}
-                    prev={() => imagePosition !== 0 ? setImagePosition(imagePosition - 8) : setImagePosition(projects.length - 8)}
+                    next={handleSelctionIncrease }
+                    prev={handleSelctionDecrease }
                 >
                     <ImageList
                         variant="quilted"
@@ -80,7 +73,6 @@ const SectionThree = () => {
                     </ImageList>
                 </Carousel>
 
-
             </CarousalContainer>
 
             <FootContainer>
@@ -88,10 +80,10 @@ const SectionThree = () => {
                     <MenuTitleStatic underlined={true} textColour='black' underlineColour={primaryColour} textTitle="See all work" />
                 </SectionText>
                 <CarousalNavContainer>
-                    <CarousalNav>
+                    <CarousalNav  onClick={handleSelctionDecrease}>
                         {'<'}
                     </CarousalNav>
-                    <CarousalNav>
+                    <CarousalNav  onClick={handleSelctionIncrease}>
                         {'>'}
                     </CarousalNav>
                 </CarousalNavContainer>
@@ -99,10 +91,7 @@ const SectionThree = () => {
             </FootContainer>
 
         </Background >
-
-
     )
 }
-
 
 export default SectionThree;

@@ -15,7 +15,7 @@ export const useScrollDirection = () => {
   
       const updateScrollDirection = () => {
         const scrollY = window.pageYOffset;
-        const direction = scrollY < 100?"top":scrollY > lastScrollY ? "down" : "up";
+        const direction = scrollY < 50?"top":scrollY > lastScrollY ? "down" : "up";
         if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
           setScrollDirection(direction);
         }
