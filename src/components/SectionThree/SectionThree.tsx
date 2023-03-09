@@ -1,21 +1,19 @@
 
-import { Button, createTheme, ImageList, Tab, Tabs, ThemeProvider } from '@mui/material';
+import { createTheme, ImageList, Tab, Tabs, ThemeProvider } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
-import { useSnapCarousel } from 'react-snap-carousel';
-import styled from 'styled-components';
+import Carousel from 'react-material-ui-carousel';
 import { useAppSelector } from '../../redux/hooks';
 import { primaryColour } from '../common/contants';
 import { Headline, HeadlineGrey, TitleSectionText as SectionText } from '../common/styles';
 import MenuTitleStatic from '../MenuTitle/MenuTitleStatic';
 import ProjectList from '../ProjectList/ProjectList';
-import Carousel from 'react-material-ui-carousel'
+import { Background, CarousalContainer, CarousalNav, CarousalNavContainer, FootContainer } from './SectionThreeCSS';
 
 
 const SectionThree = () => {
     const projects = useAppSelector((state) => state.companies.projects)
     const [imagePosition, setImagePosition] = useState(0)
-    const { scrollRef } = useSnapCarousel();
     const [tabSelect, setTabSelect] = useState(0)
     const visibleProject = projects.slice(imagePosition, imagePosition + 8)
 
@@ -70,7 +68,6 @@ const SectionThree = () => {
                     prev={() => imagePosition !== 0 ? setImagePosition(imagePosition - 8) : setImagePosition(projects.length - 8)}
                 >
                     <ImageList
-                        ref={scrollRef}
                         variant="quilted"
                         cols={3}
                         rowHeight={300}
@@ -106,31 +103,6 @@ const SectionThree = () => {
 
     )
 }
-const Background = styled.div`
-    background-color:white;
-`
-const CarousalContainer = styled.div`
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-top:30px;
-`
-const FootContainer = styled.div`
-    display:flex;
-    width:100%;
-    justify-content:space-between;
-    align-items:center;
-    
-`
-const CarousalNavContainer = styled.div`
-    display:flex;
-    margin-right: 10%;
-`
-const CarousalNav = styled(Button)`
-    background:#19293A;
-    height:50px;
-    width:50px;
-    margin:20px;
-`
 
 
 export default SectionThree;
