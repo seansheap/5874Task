@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import {TitleBoxBasic, Underline} from "./MenuTitleCSS";
 
 interface Props {
     textColour: string,
@@ -7,27 +7,25 @@ interface Props {
     underlined?: boolean
 }
 
-const MenuTitleStatic = ({ textTitle, underlined, textColour, underlineColour }: Props) => {
+const MenuTitleStatic = ({textTitle, underlined, textColour, underlineColour} : Props) => {
 
     return (
-        <TitleBox style={{ color: textColour, fontWeight:600 }}>
+        <TitleBoxBasic style={
+            {
+                color: textColour,
+                fontWeight: 600
+            }
+        }>
             {textTitle}
-            <Underline style={{ color: underlineColour, visibility:underlined===true?'visible':'hidden'}} />
-        </TitleBox>
+            <Underline style={
+                {
+                    color: underlineColour,
+                    visibility: underlined === true ? 'visible' : 'hidden'
+                }
+            }/>
+        </TitleBoxBasic>
     )
 }
-
-const Underline = styled.hr`
-    border-top: 2px solid;
-    visibility:hidden;
-`
-const TitleBox = styled.div`
-    cursor: pointer;
-    &:hover ${Underline}{
-        visibility:visible;
-    }
-`
-
 
 
 export default MenuTitleStatic;

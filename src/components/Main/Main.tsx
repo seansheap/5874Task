@@ -1,7 +1,5 @@
-
-
-import  { fetchProjectInfo } from '../../features/projects/projects'
-import { useAppDispatch } from '../../redux/hooks';
+import {fetchProjectInfo} from '../../features/projects/projects'
+import {useAppDispatch} from '../../redux/hooks';
 import Header from '../Header/Header';
 import SectionOne from '../SectionOne/SectionOne';
 import SectionThree from '../SectionThree/SectionThree';
@@ -11,9 +9,11 @@ const Main = () => {
 
     const dispatch = useAppDispatch()
     dispatch(fetchProjectInfo())
-    
+
     return (
-        <div style={{paddingBottom:500}} >
+        <div style={
+            {paddingBottom: 500}
+        }>
             <Header/>
             <SectionOne/>
             <SectionTwo/>
@@ -23,12 +23,4 @@ const Main = () => {
 }
 
 
-
-
 export default Main;
-
-
-
-
-
-
