@@ -17,10 +17,7 @@ const ProcessMenu = ({ title, children }: Props) => {
             md={6}
             lg={3}
             xl={3}>
-
-            <h3>
-                {title}
-            </h3>
+            <h3>{title}</h3>
 
             {children}
         </Box>

@@ -26,9 +26,13 @@ export const HoverDetails = styled.div`
     transition: opacity 500ms;
     background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))
 `
-export  const ProjectItem = styled(ImageListItem)`
+export const ProjectItem = styled(ImageListItem)`
     display:flex;
     &:hover ${HoverDetails} {
         opacity:1;
     }
+`
+export const ProjectImage = styled.img`
+    border-radius: 10px;
+
 `

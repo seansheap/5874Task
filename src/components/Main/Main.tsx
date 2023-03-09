@@ -1,5 +1,5 @@
-import {fetchProjectInfo} from '../../features/projects/projects'
-import {useAppDispatch} from '../../redux/hooks';
+import { fetchProjectInfo } from '../../features/projects/projects'
+import { useAppDispatch } from '../../redux/hooks';
 import Header from '../Header/Header';
 import SectionOne from '../SectionOne/SectionOne';
 import SectionThree from '../SectionThree/SectionThree';
@@ -12,12 +12,12 @@ const Main = () => {
 
     return (
         <div style={
-            {paddingBottom: 500}
+            { paddingBottom: 500 }
         }>
-            <Header/>
-            <SectionOne/>
-            <SectionTwo/>
-            <SectionThree/>
+            <Header />
+            <SectionOne />
+            <SectionTwo />
+            <SectionThree />
         </div>
     )
 }

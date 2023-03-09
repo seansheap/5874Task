@@ -1,11 +1,10 @@
-import styled from "styled-components";
-import {TitleBox} from "./MenuTitleCSS";
+import { TitleBox } from "./MenuTitle.styles";
 
 interface Props {
     textTitle: string
 }
 
-const MenuTitle = ({textTitle} : Props) => {
+const MenuTitle = ({ textTitle }: Props) => {
 
     return (
         <TitleBox> {textTitle} </TitleBox>

@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid';
-import {Box} from '@mui/system';
-import {primaryColour} from '../common/contants';
-import {Headline, HeadlineGrey, LeftSection, LeftSectionText} from '../common/styles';
+import { Box } from '@mui/system';
+import { primaryColour } from '../common/contants';
+import { Headline, HeadlineGrey, LeftSection, LeftSectionText } from '../common/styles';
 import MenuTitleStatic from '../MenuTitle/MenuTitleStatic';
 import {
     Background,
@@ -9,7 +9,7 @@ import {
     MainImage,
     RightSection,
     Tagline
-} from './SectionOneCSS';
+} from './SectionOne.styles';
 
 
 const SectionOne = () => {
@@ -52,7 +52,7 @@ const SectionOne = () => {
                                 <MenuTitleStatic underlined={true}
                                     textColour='black'
                                     underlineColour={primaryColour}
-                                    textTitle="Let's talk"/>
+                                    textTitle="Let's talk" />
                             </p>
                         </LeftSectionText>
 
@@ -61,10 +61,7 @@ const SectionOne = () => {
 
                 <HideableRightSection component={Grid}>
                     <RightSection>
-                        <MainImage src={
-                                require('../../images/Spaniel01_gradient@2x.png')
-                            }
-                            alt='mainImg'/>
+                        <MainImage src='/Spaniel01_gradient@2x.png' alt='mainImg' />
                     </RightSection>
                 </HideableRightSection>
 

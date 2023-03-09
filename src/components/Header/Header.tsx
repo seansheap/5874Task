@@ -1,32 +1,30 @@
-import { Box, Drawer } from "@mui/material";
+import { Drawer } from "@mui/material";
 import { useState } from "react";
-import styled from "styled-components";
 import { useScrollDirection } from "../../redux/hooks";
 import MenuTitle from "../MenuTitle/MenuTitle";
 import SlidingMenu from "../SlidingMenu/SlidingMenu";
-import { device } from '../utils/breakpoints';
-import { HeaderContainer, ImageTitlesRow, LogoImage, MenuButton } from "./HeaderCSS";
+import { HeaderContainer, ImageTitlesRow, LogoImage, MenuButton } from "./Header.styles";
 
 
 const Header = () => {
     const scrollDirection = useScrollDirection();
     const [open, setOpen] = useState(false)
-    const openHandler = (isOpen:boolean) =>{
+    const openHandler = (isOpen: boolean) => {
         setOpen(isOpen)
 
     }
     return (
 
-        <HeaderContainer
-            style={{
-                top: scrollDirection === "down" ? -100 : 0,
-                background: scrollDirection === "top" ? 'transparent' : 'white',
-            }}
-            color={{sm:'black', lg:scrollDirection === "top" ? 'white' : 'black'}}>
-
-            <LogoImage src={require('../../images/Digital Spaniel logo01-01.png')} alt='logoImg' />
-
-            <ImageTitlesRow >
+        <HeaderContainer style={{
+            top: scrollDirection === "down" ? -100 : 0,
+            background: scrollDirection === "top" ? 'transparent' : 'white'
+        }}
+            color={{
+                sm: 'black',
+                lg: scrollDirection === "top" ? 'white' : 'black'
+            }}>
+            <LogoImage src='/Digital Spaniel logo01-01.png' alt='logoImg' />
+            <ImageTitlesRow>
                 <MenuTitle textTitle='Services' />
                 <MenuTitle textTitle='Work' />
                 <MenuTitle textTitle='About' />
@@ -36,13 +34,9 @@ const Header = () => {
             <MenuButton onClick={() => { setOpen(!open) }}>
                 <h3>Menu</h3>
             </MenuButton>
-
-            <Drawer
-            anchor="right"
-            open={open}>
-                <SlidingMenu close={openHandler}/>
+            <Drawer anchor="right" open={open}>
+                <SlidingMenu close={openHandler} />
             </Drawer>
-
         </HeaderContainer>
     )
 }

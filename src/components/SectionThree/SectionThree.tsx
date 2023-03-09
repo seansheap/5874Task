@@ -1,10 +1,10 @@
-import {ImageList, Tab, Tabs, ThemeProvider} from '@mui/material';
-import {Box} from '@mui/system';
-import {useState} from 'react';
+import { ImageList, Tab, Tabs, ThemeProvider } from '@mui/material';
+import { Box } from '@mui/system';
+import { useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
-import {useAppSelector} from '../../redux/hooks';
-import {primaryColour} from '../common/contants';
-import {Headline, HeadlineGrey, TitleSectionText as SectionText} from '../common/styles';
+import { useAppSelector } from '../../redux/hooks';
+import { primaryColour } from '../common/contants';
+import { Headline, HeadlineGrey, TitleSectionText as SectionText } from '../common/styles';
 import MenuTitleStatic from '../MenuTitle/MenuTitleStatic';
 import ProjectList from '../ProjectList/ProjectList';
 import {
@@ -14,7 +14,7 @@ import {
     CarousalNavContainer,
     FootContainer,
     TabTheme
-} from './SectionThreeCSS';
+} from './SectionThree.styles';
 
 
 const SectionThree = () => {
@@ -23,7 +23,7 @@ const SectionThree = () => {
     const [tabSelect, setTabSelect] = useState(0)
     const visibleProject = projects.slice(imagePosition, imagePosition + 6)
 
-    const handleChange = (eventItem : any, val : number) => {
+    const handleChange = (eventItem: any, val: number) => {
         setTabSelect(val)
     }
     const handleSelctionIncrease = () => {
@@ -56,10 +56,10 @@ const SectionThree = () => {
                             onChange={handleChange}
                             textColor='secondary'
                             indicatorColor='primary'>
-                            <Tab label="All"/>
-                            <Tab label="Branding"/>
-                            <Tab label="Web Design"/>
-                            <Tab label="Digital Marketing"/>
+                            <Tab label="All" />
+                            <Tab label="Branding" />
+                            <Tab label="Web Design" />
+                            <Tab label="Digital Marketing" />
                         </Tabs>
                     </Box>
                 </ThemeProvider>
@@ -74,10 +74,10 @@ const SectionThree = () => {
                         cols={3}
                         rowHeight={300}>
                         {
-                        visibleProject.map((project) => (
-                            <ProjectList project={project}/>
-                        ))
-                    } </ImageList>
+                            visibleProject.map((project) => (
+                                <ProjectList project={project} />
+                            ))
+                        } </ImageList>
                 </Carousel>
 
             </CarousalContainer>
@@ -87,7 +87,7 @@ const SectionThree = () => {
                     <MenuTitleStatic underlined={true}
                         textColour='black'
                         underlineColour={primaryColour}
-                        textTitle="See all work"/>
+                        textTitle="See all work" />
                 </SectionText>
                 <CarousalNavContainer>
                     <CarousalNav onClick={handleSelctionDecrease}>

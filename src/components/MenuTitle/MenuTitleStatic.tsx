@@ -1,4 +1,4 @@
-import {TitleBoxBasic, Underline} from "./MenuTitleCSS";
+import { TitleBoxBasic, Underline } from "./MenuTitle.styles";
 
 interface Props {
     textColour: string,
@@ -7,22 +7,18 @@ interface Props {
     underlined?: boolean
 }
 
-const MenuTitleStatic = ({textTitle, underlined, textColour, underlineColour} : Props) => {
+const MenuTitleStatic = ({ textTitle, underlined, textColour, underlineColour }: Props) => {
 
     return (
-        <TitleBoxBasic style={
-            {
-                color: textColour,
-                fontWeight: 600
-            }
-        }>
+        <TitleBoxBasic style={{
+            color: textColour,
+            fontWeight: 600
+        }}>
             {textTitle}
-            <Underline style={
-                {
-                    color: underlineColour,
-                    visibility: underlined === true ? 'visible' : 'hidden'
-                }
-            }/>
+            <Underline style={{
+                color: underlineColour,
+                visibility: underlined === true ? 'visible' : 'hidden'
+            }} />
         </TitleBoxBasic>
     )
 }

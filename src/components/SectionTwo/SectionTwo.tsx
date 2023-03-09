@@ -1,11 +1,11 @@
 import Grid from '@mui/material/Grid';
-import {Box} from '@mui/system';
-import {primaryColour} from '../common/contants';
-import {Headline, HeadlineGrey, LeftSection, LeftSectionText} from '../common/styles';
+import { Box } from '@mui/system';
+import { primaryColour } from '../common/contants';
+import { Headline, HeadlineGrey, LeftSection, LeftSectionText } from '../common/styles';
 import MenuTitleStatic from '../MenuTitle/MenuTitleStatic';
 import Process from '../ProcessButton/ProcessButton';
 import ProcessMenu from '../ProcessMenu/ProcessMenu';
-import {Background, RightSection} from './SectionTwoCSS';
+import { Background, RightSection } from './SectionTwo.styles';
 
 const SectionTwo = () => {
 
@@ -41,7 +41,7 @@ const SectionTwo = () => {
                                 <MenuTitleStatic underlined={true}
                                     textColour='black'
                                     underlineColour={primaryColour}
-                                    textTitle='Our process'/>
+                                    textTitle='Our process' />
                             </p>
                         </LeftSectionText>
                     </LeftSection>
@@ -61,21 +61,21 @@ const SectionTwo = () => {
                         columns={6}>
 
                         <ProcessMenu title='BRAND'>
-                            <Process text='Brand Strategy'/>
-                            <Process text='Logo & Name'/>
-                            <Process text='Identity & Collateral'/>
+                            <Process text='Brand Strategy' />
+                            <Process text='Logo & Name' />
+                            <Process text='Identity & Collateral' />
                         </ProcessMenu>
 
 
                         <ProcessMenu title='DEVELOPMENT'>
-                            <Process text='Web Development'/>
-                            <Process text='Mobile Apps'/>
+                            <Process text='Web Development' />
+                            <Process text='Mobile Apps' />
                         </ProcessMenu>
 
 
                         <ProcessMenu title='MARKETING'>
-                            <Process text='Digital'/>
-                            <Process text='Market Research'/>
+                            <Process text='Digital' />
+                            <Process text='Market Research' />
                         </ProcessMenu>
                     </RightSection>
 

@@ -1,5 +1,5 @@
 import MenuTitle from "../MenuTitle/MenuTitle";
-import {CloseButton, Header, ImageTitlesColumn} from "./SlidingMenuCSS";
+import {CloseButton, Header, ImageTitlesColumn} from "./SlidingMenu.styles";
 
 interface Props {
     close: (value : boolean) => void
