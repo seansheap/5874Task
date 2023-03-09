@@ -13,7 +13,7 @@ const Main = () => {
     dispatch(fetchProjectInfo())
     
     return (
-        <div >
+        <div style={{paddingBottom:500}} >
             <Header/>
             <SectionOne/>
             <SectionTwo/>

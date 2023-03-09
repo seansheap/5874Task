@@ -20,7 +20,7 @@ const ProjectList = ({ project }: Props) => {
 
             <img style={{borderRadius:10}} src={project.image}
                 srcSet={`${project.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                alt={'img' + project.id}
+                alt={'img' + project.company}
             />
             <HoverDetails>
                 <HoverPadding>
